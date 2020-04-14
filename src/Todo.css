@@ -1,53 +1,54 @@
 .Todo {
-	/* font-size: 1.3em; */
-	padding: 1.5em 10%;
-	background: #ec6967;
-	margin-bottom: 3px;
+    font-size: 1.3em;
+    padding: 1.5em 10%;
+    background: #ec6967;
+    margin-bottom: 3px;
 }
 
 .item {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .task {
-	margin-left: -.5em;
+    margin-left: -.5em;
+    text-decoration: none;
 }
 
 .task:before,
 .task:after {
-	content: "\00a0\00a0";
+    content: "\00a0\00a0";
 }
 
 .Completed {
-	text-decoration: line-through;
-	text-decoration-thickness: 100%;
-	opacity: 80%;
+    text-decoration: line-through;
+    text-decoration-thickness: 100%;
+    opacity: 80%;
 }
 
 .icons i {
-	margin-left: 1em;
+    margin-left: 1em;
 }
 
 .editor {
-	display: flex;
-	justify-content: flex-start;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .editor input {
-	font-size: 1em;
-	font-family: 'Roboto', sans-serif;
-	border: 0;
-	margin: 0 0.5em 0 0;
-	padding: .75em 1em;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    border: 0;
+    margin: 0 0.5em 0 0;
+    padding: .75em 1em;
 }
 
 .editor button {
-	font-size: 1em;
-	color: white;
-	border: 1px solid lightgray;
-	background: #ef5350;
-	font-family: 'Roboto', sans-serif;
-	text-transform: capitalize;
-	padding: .75em 1em;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid lightgray;
+    background: #ef5350;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    padding: .75em 1em;
 }
