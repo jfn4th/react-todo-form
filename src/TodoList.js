@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 import NewTodoForm from './NewTodoForm';
 import Todo from './Todo';
+import './TodoList.css';
 
 class TodoList extends Component {
 	constructor(props) {
 		super(props);
-
+		let storedTodos = [];
+		if (localStorage.getItem('todos')) {
+			storedTodos = JSON.parse(localStorage.getItem('todos'));
+		}
 		this.state = {
-			todos: []
+			todos: storedTodos
 		};
 		this.addTodo = this.addTodo.bind(this);
 		this.removeTodo = this.removeTodo.bind(this);
 		this.editTodo = this.editTodo.bind(this);
+		this.completeTodo = this.completeTodo.bind(this);
 	}
-
+	componentDidUpdate() {
+		const todos = this.state.todos;
+		console.log(todos);
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}
 	addTodo(todo) {
 		this.setState({
 			todos: [ ...this.state.todos, todo ]
@@ -37,6 +46,17 @@ class TodoList extends Component {
 		this.setState({ todos: editedTodos });
 	}
 
+	completeTodo(id) {
+		const completedTodos = this.state.todos.map((todo) => {
+			if (todo.id === id) {
+				todo.completed = !todo.completed;
+				return todo;
+			}
+			return todo;
+		});
+		this.setState({ todos: completedTodos });
+	}
+
 	render() {
 		const todos = this.state.todos.map((todo) => (
 			<Todo
@@ -46,15 +66,16 @@ class TodoList extends Component {
 				completed={todo.completed}
 				removeTodo={this.removeTodo}
 				editTodo={this.editTodo}
+				completeTodo={this.completeTodo}
 			/>
 		));
 		return (
 			<div className="TodoList">
 				<div className="TodoListHeader">
-					<h1 className="TodoListTitle">Todo List!</h1>
+					<h1>Todo List!</h1>
 					<p>A Simple React Todo List.</p>
 				</div>
-				{todos}
+				<div className="Todos">{todos}</div>
 				<NewTodoForm addTodo={this.addTodo} />
 			</div>
 		);

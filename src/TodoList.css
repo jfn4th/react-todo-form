@@ -1,0 +1,29 @@
+.TodoList {
+	color: white;
+	background: #ef5350;
+	margin-top: 10vh;
+	width: 40vw;
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.315);
+}
+
+.TodoListHeader {
+	margin: 0 auto;
+	margin-bottom: 10px;
+	text-align: left;
+	border-bottom: 1px solid lightgray;
+	width: 80%;
+}
+
+.TodoListHeader h1 {
+	font-size: 3em;
+	margin-bottom: 0;
+}
+
+.TodoListHeader p {
+	margin-top: 0;
+	font-weight: 300;
+}
+
+.Todos {
+	margin-top: 2em;
+}

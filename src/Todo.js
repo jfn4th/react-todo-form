@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Todo.css';
 
 class Todo extends Component {
 	constructor(props) {
@@ -6,19 +7,22 @@ class Todo extends Component {
 
 		this.state = {
 			editing: false,
-			edit: ''
+			edit: this.props.task
 		};
 		this.handleRemove = this.handleRemove.bind(this);
 		this.editTodo = this.editTodo.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
+		this.handleCompletion = this.handleCompletion.bind(this);
 	}
 
-	handleRemove() {
+	handleRemove(evt) {
+		evt.stopPropagation();
 		this.props.removeTodo(this.props.id);
 	}
 
-	editTodo() {
+	editTodo(evt) {
+		evt.stopPropagation();
 		this.setState({ editing: true });
 	}
 
@@ -30,24 +34,28 @@ class Todo extends Component {
 
 	handleEdit(evt) {
 		evt.preventDefault();
+		// evt.stopPropagation();
 		const editedTodo = {
 			task: this.state.edit,
 			id: this.props.id
 		};
-		this.props.editTodo(editedTodo);
 		this.setState({
-			editing: false,
-			edit: ''
+			editing: false
 		});
+		this.props.editTodo(editedTodo);
+	}
+
+	handleCompletion() {
+		this.props.completeTodo(this.props.id);
 	}
 
 	render() {
-		let classes = 'Todo' + (this.props.completed ? 'Completed' : '');
+		let classes = this.props.completed ? ' Completed' : '';
 		return (
-			<div>
+			<div className="Todo">
 				{this.state.editing ? (
-					<div className="editor">
-						<form onSubmit={this.handleEdit}>
+					<form onSubmit={this.handleEdit}>
+						<div className="editor">
 							<input
 								type="text"
 								name="edit"
@@ -56,13 +64,17 @@ class Todo extends Component {
 								onChange={this.handleChange}
 							/>
 							<button>Save</button>
-						</form>
-					</div>
+						</div>
+					</form>
 				) : (
-					<div>
-						<span className={classes}>{this.props.task}</span>
-						<i className="fas fa-edit" onClick={this.editTodo} />
-						<i className="fas fa-trash" onClick={this.handleRemove} />
+					<div onClick={this.handleCompletion} className="item">
+						<div className={classes}>
+							<span className="task">{this.props.task}</span>
+						</div>
+						<div className="icons">
+							<i className="fas fa-edit" onClick={this.editTodo} />
+							<i className="fas fa-trash" onClick={this.handleRemove} />
+						</div>
 					</div>
 				)}
 			</div>
