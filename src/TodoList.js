@@ -25,7 +25,6 @@ class TodoList extends Component {
 
     componentDidUpdate() {
         const todos = this.state.todos;
-        console.log(todos);
         localStorage.setItem('todos', JSON.stringify(todos));
     }
     addTodo(todo) {
