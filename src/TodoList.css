@@ -6,9 +6,6 @@
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.315);
 }
 
-.TodoList ul {
-    list-style-type: none;
-}
 .TodoListHeader {
     margin: 2em auto;
     text-align: left;
@@ -23,6 +20,10 @@
 
 .TodoListHeader p {
     font-weight: 300;
+}
+
+.TodoList ul {
+    list-style-type: none;
 }
 
 .Todos {
