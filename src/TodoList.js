@@ -6,18 +6,23 @@ import './TodoList.css';
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        let storedTodos = [];
-        if (localStorage.getItem('todos')) {
-            storedTodos = JSON.parse(localStorage.getItem('todos'));
-        }
         this.state = {
-            todos: storedTodos
+            todos: []
         };
         this.addTodo = this.addTodo.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
         this.editTodo = this.editTodo.bind(this);
         this.completeTodo = this.completeTodo.bind(this);
     }
+    componentDidMount() {
+        if (localStorage.getItem('todos')) {
+            const storedTodos = JSON.parse(localStorage.getItem('todos'));
+            if (storedTodos.length > 0) {
+                this.setState({ todos: storedTodos });
+            }
+        }
+    }
+
     componentDidUpdate() {
         const todos = this.state.todos;
         console.log(todos);
