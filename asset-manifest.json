@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-todo-form/static/css/main.33b0d5f0.chunk.css",
+    "main.js": "/react-todo-form/static/js/main.26d24c60.chunk.js",
+    "main.js.map": "/react-todo-form/static/js/main.26d24c60.chunk.js.map",
+    "runtime-main.js": "/react-todo-form/static/js/runtime-main.fce7f008.js",
+    "runtime-main.js.map": "/react-todo-form/static/js/runtime-main.fce7f008.js.map",
+    "static/js/2.c3df7d47.chunk.js": "/react-todo-form/static/js/2.c3df7d47.chunk.js",
+    "static/js/2.c3df7d47.chunk.js.map": "/react-todo-form/static/js/2.c3df7d47.chunk.js.map",
+    "index.html": "/react-todo-form/index.html",
+    "precache-manifest.c2a9ee94294c4cbac077a3bac300a626.js": "/react-todo-form/precache-manifest.c2a9ee94294c4cbac077a3bac300a626.js",
+    "service-worker.js": "/react-todo-form/service-worker.js",
+    "static/css/main.33b0d5f0.chunk.css.map": "/react-todo-form/static/css/main.33b0d5f0.chunk.css.map",
+    "static/js/2.c3df7d47.chunk.js.LICENSE.txt": "/react-todo-form/static/js/2.c3df7d47.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fce7f008.js",
+    "static/js/2.c3df7d47.chunk.js",
+    "static/css/main.33b0d5f0.chunk.css",
+    "static/js/main.26d24c60.chunk.js"
+  ]
+}
